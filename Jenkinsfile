@@ -1,3 +1,4 @@
+/*
 stage 'Build-Docker-Image'
 node("demo") {
    echo 'Check out code'
@@ -12,14 +13,13 @@ node("demo") {
    }
 }
 
-/*
 stage 'Push-Image'
 node("master") {
    echo 'Push new build to registory'
     sh 'docker push 192.168.2.93:5002/proj1/python-redis-demo:b${BUILD_NUMBER}'
     sh 'docker rmi 192.168.2.93:5002/proj1/python-redis-demo:b${BUILD_NUMBER}'
 }
-*/
+
 
 stage 'Build-testing'
 node("master") {
@@ -29,3 +29,32 @@ node("master") {
     sh 'sh ./test-build.sh'
 }
 }
+*/
+
+stage 'Build'
+   node("demo") {
+      echo 'Build...'
+      //dir('./test-build') {
+      // run build file
+      //sh 'sh ./test-build.sh'
+   }
+}
+
+stage 'Test'
+   node("demo") {
+      echo 'Test...'
+      //dir('./test-build') {
+      // run build file
+      //sh 'sh ./test-build.sh'
+   }
+}
+
+stage 'Deploy'
+   node("demo") {
+      echo 'Deploy...'
+      //dir('./test-build') {
+      // run build file
+      //sh 'sh ./test-build.sh'
+   }
+}
+
