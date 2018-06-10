@@ -32,29 +32,20 @@ node("master") {
 */
 
 stage 'Build'
-   node("demo") {
+   node("master") {
       echo 'Build...'
-      //dir('./test-build') {
-      // run build file
-      //sh 'sh ./test-build.sh'
    }
 }
 
 stage 'Test'
-   node("demo") {
+   node("master") {
       echo 'Test...'
-      //dir('./test-build') {
-      // run build file
-      //sh 'sh ./test-build.sh'
    }
 }
 
 stage 'Deploy'
-   node("demo") {
+   node("master") {
       echo 'Deploy...'
-      //dir('./test-build') {
-      // run build file
-      //sh 'sh ./test-build.sh'
    }
 }
 
